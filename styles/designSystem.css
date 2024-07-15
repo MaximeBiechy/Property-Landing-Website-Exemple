@@ -25,6 +25,7 @@
   /* * Font Size */
   --fs-56: 3.5rem;
   --fs-38: 2.375rem;
+  --fs-32: 2rem;
   --fs-28: 1.75rem;
   --fs-24: 1.5rem;
   --fs-22: 1.375rem;
@@ -37,6 +38,13 @@
 .container {
   max-width: 1240px;
   margin: 0 auto;
+}
+
+.sectionTitle {
+  font-family: var(--font-family);
+  font-size: var(--fs-38);
+  text-align: center;
+  font-weight: bold;
 }
 
 /*
@@ -81,20 +89,33 @@ img {
   border-radius: 15px;
 }
 
-/* 
+.navbar .menu-burger-btn {
+  display: none;
+  cursor: pointer;
+}
+
+.navbar .close-btn {
+  display: none;
+  cursor: pointer;
+}
+
+/*
  * Styles rules for Footer
  */
 .footer {
   display: flex;
+  flex-wrap: wrap;
   justify-content: space-between;
   padding: 0 20px;
   margin-bottom: 40px;
+  gap: 40px;
 }
 
 .social-container {
   display: flex;
   flex-direction: column;
   justify-content: space-between;
+  gap: 20px;
 }
 
 .social-links {
@@ -104,6 +125,7 @@ img {
 
 .footer-links-container {
   display: flex;
+  flex-wrap: wrap;
   gap: 100px;
 }
 
@@ -141,9 +163,11 @@ img {
 
 .input-icon {
   position: relative;
+  max-width: 300px;
+  max-height: 37px;
 }
 
-.input-icon i {
+.input-icon .icon {
   background-color: var(--color-light-blue);
   color: var(--color-white-100);
   padding: 5px;
@@ -162,5 +186,74 @@ img {
 @media (min-width: 1200px) {
   .container {
     max-width: 70%;
+  }
+}
+
+@media (max-width: 1200px) {
+  .container {
+    max-width: 80%;
+  }
+
+  .sectionTitle {
+    font-size: var(--fs-32);
+
+  }
+}
+
+@media (max-width: 1045px) {
+  .container {
+    max-width: 90%;
+  }
+}
+
+@media (max-width: 920px) {
+  .navbar-menu {
+    display: none;
+  }
+
+  .navbar .menu-burger-btn {
+    display: block;
+    font-size: 1.5rem;
+  }
+
+  .navbar.open .navbar-menu {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    gap: 40px;
+    position: fixed;
+    top: 0;
+    right: 0;
+    width: 100%;
+    height: 100%;
+    backdrop-filter: blur(10px);
+    z-index: 2;
+    padding: 20px;
+    transition: transform 0.3s;
+  }
+
+  .navbar.open .close-btn {
+    display: block;
+    font-size: 1.5rem;
+    position: absolute;
+    top: 40px;
+    right: 40px;
+    z-index: 2;
+  }
+}
+
+@media (max-width: 740px) {
+  .sectionTitle {
+    font-size: var(--fs-28);
+  }
+
+  .footer-links-container {
+    gap: 40px;
+  }
+
+  .footer .subscribe {
+    flex-direction: row;
+    gap: 20px;
   }
 }
