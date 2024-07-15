@@ -44,12 +44,6 @@ function resetNavDisplay() {
 }
 
 // Close the navbar when clicking outside of it
-window.addEventListener('click', (e) => {
-    if (e.target !== navbar && e.target !== menu_burger_btn) {
-        navbar.classList.remove('open');
-        close_btn.style.display = 'none';
-        menu_burger_btn.style.display = 'block';
-    }
-});
+window.addEventListener('resize',resetNavDisplay);
 
 resetNavDisplay();
